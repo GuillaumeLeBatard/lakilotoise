@@ -16,6 +16,7 @@
 
 <head>
   <script src="https://kit.fontawesome.com/14550d8f56.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" href="etoile_pleine.png" />
 </head>
 <style>
   body,
@@ -58,7 +59,8 @@
 <body id="myPage">
 
   <!-- Sidebar on click -->
-  <nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-large" style="display:none;z-index:2"
+  <!--
+    <nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-large" style="display:none;z-index:2"
     id="mySidebar">
     <a href="javascript:void(0)" onclick="w3_close()"
       class="w3-bar-item w3-button w3-display-topright w3-text-deep-purple">Fermer
@@ -69,6 +71,7 @@
     <a href="#" class="w3-bar-item w3-button">au d&eacutepart de Saint-Lary Soulan</a>
 
   </nav>
+-->
 
   <!-- Navbar -->
   <div class="w3-top">
@@ -95,6 +98,15 @@
           class="fa fa-search"></i></a>-->
     </div>
 
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-right">
+      <a href="#Parcours" class="w3-bar-item w3-button"><i class="fas fa-route"></i></a>
+      <a href="#info" class="w3-bar-item w3-button"><i class="fas fa-info-circle"></i></a>
+      <a href="#" class="w3-bar-item w3-button"><i class="fas fa-pencil-alt"></i></a>
+      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope-o"></i></a>
+    </div>
+  </div>
+
     <!-- liste des cols
 
   <a href="https://www.cols-cyclisme.com/pyrenees-centrales/france/col-de-portet-depuis-saint-lary-soulan-c127.htm">Col de Portet</a>
@@ -107,18 +119,8 @@
   <a href="https://www.cols-cyclisme.com/pyrenees-centrales/france/col-d-aspin-depuis-arreau-c9.htm">Col d'Aspin</a>
 -->
 
-
-    <!-- Navbar on small screens -->
-    <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-right">
-      <a href="#Parcours" class="w3-bar-item w3-button"><i class="fas fa-route"></i></a>
-      <a href="#info" class="w3-bar-item w3-button"><i class="fas fa-info-circle"></i></a>
-      <a href="#" class="w3-bar-item w3-button"><i class="fas fa-pencil-alt"></i></a>
-      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope-o"></i></a>
-    </div>
-  </div>
-
   <!-- Image Header -->
-  <div class="w3-display-container w3-animate-opacity" id="fond_principal">
+  <div class="w3-display-container w3-animate-opacity w3-hide-small" id="fond_principal">
     <img src="fond_test.png" alt="fond" style="width:100%;min-height:350px;max-height:600px;">
     <!--<img src="fond_sans_titre.png" alt="fond" style="width:100%;min-height:350px;max-height:600px;">
   <img src="titre.png" alt="titre" id="titre" style="width:60%; height: 60%">-->
@@ -129,6 +131,10 @@
         class="w3-button w3-large w3-theme w3-hover-deep-purple" title="Go To W3.CSS">En savoir plus</button>
     </div>
     -->
+  </div>
+  <div class="w3-display-container w3-animate-opacity w3-hide-large w3-hide-medium" id="fond_principal">
+    <img src="fond_sans_titre.png" alt="fond" style="width:100%;min-height:350px;max-height:600px;">
+    <img src="titre.png" alt="titre" id="titre" style="width:80%; height: 60%">
   </div>
 
   <!-- Modal -->
@@ -187,11 +193,10 @@
   <!-- Team Container -->
   <div class="w3-container w3-padding-64 w3-center" id="team">
     <h2>Le d&eacutefi d'un jour... et d'une nuit</h2>
-    <h3>Autour de l’observatoire du Pic du Midi de Bigorre, gravitent les routes les plus élevées accessibles à vélo de
-      route dans le massif Pyrénéen. Quasiment toutes celles qui dépassent une kilotoise* d’altitude. L’objectif du défi
-      est de rallier toutes ces merveilles en un jour. Ce voyage intersidéral accessible à la force des mollets
-      représente a minima 8 ascensions, 320km et 10500m (5400 toises). De quoi faire l’expérience de la
-      pesanteur…</h3>
+    <h3>Autour de l’observatoire du Pic du Midi de Bigorre gravitent les routes les plus élevées accessibles à vélo de
+      route dans le massif Pyrénéen. L’objectif du défi est de rallier toutes celles qui culminent à plus d'une
+      kilotoise* d’altitude en un seul jour! Il faudra gravir a minima 8 ascensions et parcourir 320km et 10500m (5400
+      toises) pour boucler ce périple. De quoi faire l’expérience de la pesanteur…</h3>
     <p class="w3-large">(*) 1 kiloToise = 1949 mètres</p>
 
 
@@ -206,13 +211,14 @@
             <h3>En un jour?</h3>
             <h4></h4>
             <p>Oui, mais un jour ne dure pas nécessairement les 24 heures environ qui sont nécessaires à la planète
-              Terre pour faire un tour sur elle-même de nos jours. Ce serait bien trop arbitraire. Il est donc permis de
-              choisir la durée du jour de la planète de son choix, ou bien de rester sur Terre, mais de remonter à des
-              éres
-              géologiques bien plus anciennes. Ainsi sur Europe, une des 79 lunes de Jupiter, une révolution dure plus
-              de 3 jours terrestres, tandis que sur Terre pendant le Cambrien, il suffisait d'un peu plus de 20 heures
-              pour revoir le soleil se lever. A chacun donc d’adapter son défi, seul ou en groupe, en tandem, à la force
-              musculaire ou assisté d’un moteur, graine d’aventurier ou simple amoureux de la montagne. Le réaliser en
+              Terre pour faire un tour sur elle-même. Ce serait bien trop arbitraire. Il est donc permis de
+              choisir la durée du jour sur l'astre de son choix. Ainsi sur Europe, une des 79 lunes de Jupiter, une
+              révolution dure plus
+              de 3 jours terrestres. Il est aussi possible de rester sur notre vieille Terre, et de remonter à des
+              éres géologiques bien plus anciennes. Au Cambrien par exemple, il suffisait d'un peu plus de 20 heures
+              pour voir le soleil se lever une seconde fois. A chacun donc de fixer son défi, seul ou en groupe, en
+              tandem, à la force
+              musculaire ou assisté d’un moteur, graine d’aventurier ou simple amoureux de la montagne. L'accomplir en
               moins de 24 heures reste une performance réservée à des cyclistes endurants !</p>
             <!--<p><button class="w3-button w3-light-grey w3-block">Voir plus</button></p>-->
           </div>
@@ -243,11 +249,10 @@
             <p>Quels sont les points à relier ? Ceux qui culminent à plus d’une kilotoise d’altitude sont le Tourmalet
               (par ses deux côtés, car il est important de pouvoir répondre à la sempiternelle question : quel est le
               versant le plus difficile?), le col des Tentes dans le cirque de Gavarnie, le cirque de Troumouse, le col
-              du Portet, le barrage de Cap-de-Long et les lacs d’Aubert/Aumar dans le parc du Néouvielle. Tout comme la
-              plupart
-              des planètes sont indissociables de leurs satellites, le col d’Aspin et la Hourquette d’Ancizan complètent
-              la galaxie. Le parcours orbite entre vallées préservées, haut-lieux du tour de France et Parc National,
-              jamais très loin des téléscopes du Pic du Midi. </p>
+              du Portet, le barrage de Cap-de-Long et les lacs d’Aubert/Aumar dans le parc du Néouvielle. Tout comme
+              certaines planètes sont indissociables de leurs satellites, le col d’Aspin et la Hourquette d’Ancizan
+              s'invitent à cette liste. Le parcours orbite ainsi, jamais très loin des téléscopes du Pic du Midi, entre
+              les vallées du Parc National des Pyrénées et de rudes ascensions du Tour de France. </p>
             <p><button class="w3-button w3-light-grey w3-block"><a href="#Parcours">D&eacutetails</a></button></p>
           </div>
         </div>
@@ -268,7 +273,8 @@
             <p id="more">Ce format d'&eacutepreuve existe déjà dans les Pyrénées avec <a class="w3-text-deep-purple"
                 href="https://www.baron-souloraubisque.com/" target="_blank">les Barons du Soulor-Aubisque</a>, dans les
               Alpes avec<a class="w3-text-deep-purple" href="https://www.les7majeurs.com/" target="_blank"> les 7
-                majeurs</a>, et encore d'autres randonnées, cyclosportives ou autres brevets. La palette est large,
+                majeurs</a>, l'<i>Everesting Challenge</i> et encore d'autres randonnées, cyclosportives ou brevets. La
+              palette est large,
               allez les découvrir!</p>
             <p><a onclick="myFunction()" id="myBtn" class="w3-button w3-xlarge w3-circle w3-deep-purple"
                 style="position:absolute;bottom:-28px;right:5px">+</a></p>
@@ -284,7 +290,8 @@
     <!-- Les Défis -->
     <div class="w3-row-padding w3-center w3-padding-64" id="defis">
       <h2>Les Défis</h2>
-      <h3>Taillez le défi à votre démesure, roulez, envoyez une preuve et un beau témoignage<br> Et faites tourner la machine à souvenirs !</h3><br>
+      <h3>Taillez le défi à votre démesure, roulez, envoyez une preuve et un beau témoignage<br> Et faites tourner la
+        machine à souvenirs !</h3><br>
       <div class="w3-quarter w3-margin-bottom">
         <ul class="w3-ul w3-border w3-hover-shadow">
           <li class="w3-theme-l5">
@@ -302,7 +309,7 @@
 
           <li class="w3-theme-l5 w3-padding-24">
             <button onclick="document.getElementById('modalrecits').style.display='block'"
-              class="w3-button w3-deep-purple w3-padding-large"><i class="fa fa-check"></i> Je l'ai fait!</button>
+              class="w3-button w3-deep-purple w3-padding-large w3-card-4"><i class="fa fa-check"></i> Je l'ai fait!</button>
           </li>
         </ul>
       </div>
@@ -322,7 +329,7 @@
           <li class="w3-padding-16"><b>23 heures et 56 minutes</b></li>
           <li class="w3-theme-l5 w3-padding-24">
             <button onclick="document.getElementById('modalrecits').style.display='block'"
-              class="w3-button w3-deep-purple w3-padding-large"><i class="fa fa-check"></i> Je l'ai fait!</button>
+              class="w3-button w3-deep-purple w3-padding-large w3-card-4"><i class="fa fa-check"></i> Je l'ai fait!</button>
           </li>
         </ul>
       </div>
@@ -341,7 +348,7 @@
           <li class="w3-padding-16"><b>20 heures et 30 minutes</b></li>
           <li class="w3-theme-l5 w3-padding-24">
             <button onclick="document.getElementById('modalrecits').style.display='block'"
-              class="w3-button w3-deep-purple w3-padding-large"><i class="fa fa-check"></i> Je l'ai fait!</button>
+              class="w3-button w3-deep-purple w3-padding-large w3-card-4"><i class="fa fa-check"></i> Je l'ai fait!</button>
           </li>
         </ul>
       </div>
@@ -361,7 +368,7 @@
           <li class="w3-padding-16"><b>16 heures et 4 minutes</b> </li>
           <li class="w3-theme-l5 w3-padding-24">
             <button onclick="document.getElementById('modalrecits').style.display='block'"
-              class="w3-button w3-deep-purple w3-padding-large"><i class="fa fa-check"></i>Je l'ai fait!</button>
+              class="w3-button w3-deep-purple w3-padding-large w3-card-4"><i class="fa fa-check"></i>Je l'ai fait!</button>
           </li>
         </ul>
       </div>
@@ -464,12 +471,12 @@
     <img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%;">-->
 
   <!-- traces Komoot, profil sportif-->
-  <div class="w3-container w3-padding-64 w3-center" id="Parcours">
+  <div class="w3-container w3-padding-64 w3-center w3-card" id="Parcours">
 
 
     <button class="accordion">Au d&eacutepart d'Arreau</button>
-    <div class="panel">
-      <a href="la kilotoise - Arreau.gpx" class="w3-row-padding w3-cursive" download>télécharger GPX</a>
+    <div class="panel" style="color:lightgray">
+      <a href="la kilotoise - Arreau.gpx" class="w3-row-padding w3-cursive " download>télécharger GPX</a>
       <br>
       <iframe
         src="https://www.komoot.fr/tour/368289806/embed?share_token=as6cxXQakzMf32oKETu96YgrU9kqrTrnzj9NHs1d9xEFhJEKXO&profile=1"
@@ -479,7 +486,7 @@
 
     <button class="accordion">Au d&eacutepart de Luz-Saint-Sauveur</button>
 
-    <div class="panel">
+    <div class="panel" style="color:lightgray">
       <a href="la_kilotoise_argeles.gpx" class="w3-row-padding w3-cursive" download>télécharger GPX</a>
       <br>
       <iframe
@@ -488,7 +495,7 @@
     </div>
 
     <button class="accordion">Au d&eacutepart de Bagn&egraveres de Bigorre</button>
-    <div class="panel">
+    <div class="panel" style="color:lightgray">
       <a href="la kilotoise - Bagneres.gpx" class="w3-row-padding w3-cursive" download>télécharger GPX</a>
       <br>
       <iframe
@@ -499,101 +506,80 @@
     <p></p>
     <button class="accordion">Les Ascensions</button>
     <div class="panel">
-      <!--<ul style="list-style-type: none;">
-        <li class="accordion" class="w3-hover-white" style="font-size:20px"><i
-            class="fas fa-mountain w3-text-brown w3-xlarge"></i> Col
-          de Portet</li>
-        <li class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-text-brown w3-xlarge"></i> Lac
-          de Cap-de-Long - N&eacuteouvielle</li>
-        <li class="accordion" style="font-size:20px"><i class="fa fa-tree w3-text-teal w3-xlarge"></i> Lac
-          d'Aubert et Aumar - N&eacuteouvielle</li>
-        <li class="accordion" style="font-size:20px"><i class="fa fa-tree w3-text-teal w3-xlarge"></i> Col
-          d'Aspin</li>
-        <li class="accordion" style="font-size:20px"><i class="fa fa-tree w3-text-teal w3-xlarge"></i> Hourquette
-          d'Ancizan</li>
-        <li class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-text-brown w3-xlarge"></i> Col
-          du Tourmalet par Sainte-Marie de Campan</li>
-        <li class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-text-brown w3-xlarge"></i> Col
-          du Tourmalet par Luz Saint-Sauveur</li>
-        <li class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-text-brown w3-xlarge"></i> Col
-          des Tentes - Gavarnie</li>
-        <li class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-text-brown w3-xlarge"></i>
-          Cirque de Troumouse</li>
-      </ul>-->
-      <button class="accordion" class="w3-hover-white" style="font-size:20px"><i
-          class="fas fa-mountain w3-text-brown w3-xlarge"></i> Col
-        de Portet</button>
-      <div class="panel" style="font-family: cursive;font-size: 20px;">depuis Saint-Lary-Soulan  <i
-          class="fas fa-mountain w3-xlarge"></i>2215m  <i class="fas fa-arrows-alt-h w3-xlarge"></i>17,8km  <i
-          class="fas fa-arrows-alt-v w3-xlarge"></i>1405m  <i class="fas fa-percent w3-xlarge"></i>7,9</div>
-      <button class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-text-brown w3-xlarge"></i> Lac
+      <button class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-xlarge"
+          style="color:whitesmoke"></i> Col de Portet</button>
+      <div class="panel" style="font-family: cursive;font-size: 18px; color:lightgray">depuis Saint-Lary-Soulan <i
+          class="fas fa-mountain w3-large"></i>2215m <i class="fas fa-arrows-alt-h w3-large"></i>17,8km <i
+          class="fas fa-arrows-alt-v w3-large"></i>1405m <i class="fas fa-percent w3-large"></i>7,9</div>
+      <button class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-xlarge" style="color:whitesmoke"></i> Lac
         de Cap-de-Long - N&eacuteouvielle</button>
-      <div class="panel" style="font-family: cursive;font-size: 20px;">depuis Saint-Lary-Soulan  <i
-          class="fas fa-mountain w3-xlarge"></i>2165m  <i class="fas fa-arrows-alt-h w3-xlarge"></i>22,5km  <i
-          class="fas fa-arrows-alt-v w3-xlarge"></i>1380m  <i class="fas fa-percent w3-xlarge"></i>6,1</div>
-      <button class="accordion" style="font-size:20px"><i class="fa fa-tree w3-text-teal w3-xlarge"></i> Lacs
+      <div class="panel" style="font-family:cursive;font-weight:lighter;font-size: 18px; color:lightgray">depuis Saint-Lary-Soulan <i
+          class="fas fa-mountain w3-large"></i>2165m <i class="fas fa-arrows-alt-h w3-large"></i>22,5km <i
+          class="fas fa-arrows-alt-v w3-large"></i>1380m <i class="fas fa-percent w3-large"></i>6,1</div>
+      <button class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-xlarge" style="color:whitesmoke"></i> Lacs
         d'Aubert et Aumar - N&eacuteouvielle</button>
-      <div class="panel" style="font-family: cursive;font-size: 20px;">depuis le lac d'Or&eacutedon  <i
-          class="fas fa-mountain w3-xlarge"></i>2205m  <i class="fas fa-arrows-alt-h w3-xlarge"></i>4,5km  <i
-          class="fas fa-arrows-alt-v w3-xlarge"></i>330m  <i class="fas fa-percent w3-xlarge"></i>7,4</div>
-      <button class="accordion" style="font-size:20px"><i class="fa fa-tree w3-text-teal w3-xlarge"></i> Col
+      <div class="panel" style="font-family: cursive;font-size: 18px; color:lightgray">depuis le lac d'Or&eacutedon <i
+          class="fas fa-mountain w3-large"></i>2205m <i class="fas fa-arrows-alt-h w3-large"></i>4,5km <i
+          class="fas fa-arrows-alt-v w3-large"></i>330m <i class="fas fa-percent w3-large"></i>7,4</div>
+      <button class="accordion" style="font-size:20px"><i class="fa fa-tree w3-text-green w3-xlarge"></i> Col
         d'Aspin</button>
-      <div class="panel" style="font-family: cursive;font-size: 20px;">depuis Arreau  <i class="fas fa-mountain w3-xlarge"></i>1489m  <i
-          class="fas fa-arrows-alt-h w3-xlarge"></i>12km  <i class="fas fa-arrows-alt-v w3-xlarge"></i>779m  <i
-          class="fas fa-percent w3-xlarge"></i>6,5<br>
-        depuis Sainte-Marie-de-Campan  <i class="fas fa-mountain w3-xlarge"></i>1489m  <i
-          class="fas fa-arrows-alt-h w3-xlarge"></i>12,5km  <i class="fas fa-arrows-alt-v w3-xlarge"></i>620m  <i
-          class="fas fa-percent w3-xlarge"></i>5,0</div>
-      <button class="accordion" style="font-size:20px"><i class="fa fa-tree w3-text-teal w3-xlarge"></i> Hourquette
+      <div class="panel" style="font-family: cursive;font-size: 18px; color:lightgray">depuis Arreau <i
+          class="fas fa-mountain w3-large"></i>1489m <i class="fas fa-arrows-alt-h w3-large"></i>12km <i
+          class="fas fa-arrows-alt-v w3-large"></i>779m <i class="fas fa-percent w3-large"></i>6,5<br>
+        depuis Sainte-Marie-de-Campan <i class="fas fa-mountain w3-large"></i>1489m <i
+          class="fas fa-arrows-alt-h w3-large"></i>12,5km <i class="fas fa-arrows-alt-v w3-large"></i>620m <i
+          class="fas fa-percent w3-large"></i>5,0</div>
+      <button class="accordion" style="font-size:20px"><i class="fa fa-tree w3-text-green w3-xlarge"></i> Hourquette
         d'Ancizan</button>
-      <div class="panel" style="font-family: cursive;font-size: 20px;">depuis Ancizan  <i class="fas fa-mountain w3-xlarge"></i>1564m  <i
-          class="fas fa-arrows-alt-h w3-xlarge"></i>10,3km  <i class="fas fa-arrows-alt-v w3-xlarge"></i>805m  <i
-          class="fas fa-percent w3-xlarge"></i>7,8<br>
-        depuis Sainte-Marie-de-Campan  <i class="fas fa-mountain w3-xlarge"></i>1564m  <i
-          class="fas fa-arrows-alt-h w3-xlarge"></i>17km  <i class="fas fa-arrows-alt-v w3-xlarge"></i>770m  <i
-          class="fas fa-percent w3-xlarge"></i>4,5</div>
-      <button class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-text-brown w3-xlarge"></i> Col
+      <div class="panel" style="font-family: cursive;font-size: 18px; color:lightgray">depuis Ancizan <i
+          class="fas fa-mountain w3-large"></i>1564m <i class="fas fa-arrows-alt-h w3-large"></i>10,3km <i
+          class="fas fa-arrows-alt-v w3-large"></i>805m <i class="fas fa-percent w3-large"></i>7,8<br>
+        depuis Sainte-Marie-de-Campan <i class="fas fa-mountain w3-large"></i>1564m <i
+          class="fas fa-arrows-alt-h w3-large"></i>17km <i class="fas fa-arrows-alt-v w3-large"></i>770m <i
+          class="fas fa-percent w3-large"></i>4,5</div>
+      <button class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-xlarge" style="color:whitesmoke"></i> Col
         du Tourmalet</button>
-      <div class="panel" style="font-family: cursive;font-size: 20px;">depuis Luz-Saint-Sauveur  <i
-          class="fas fa-mountain w3-xlarge"></i>2115m  <i class="fas fa-arrows-alt-h w3-xlarge"></i>19km  <i
-          class="fas fa-arrows-alt-v w3-xlarge"></i>1404m  <i class="fas fa-percent w3-xlarge"></i>7,4<br>
-        depuis Sainte-Marie-de-Campan  <i class="fas fa-mountain w3-xlarge"></i>2115m  <i
-          class="fas fa-arrows-alt-h w3-xlarge"></i>17,2km  <i class="fas fa-arrows-alt-v w3-xlarge"></i>1268m<i
-          class="fas fa-percent w3-xlarge"></i>7,4</div>
-      <button class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-text-brown w3-xlarge"></i> Col
+      <div class="panel" style="font-family: cursive;font-size: 18px; color:lightgray">depuis Luz-Saint-Sauveur <i
+          class="fas fa-mountain w3-large"></i>2115m <i class="fas fa-arrows-alt-h w3-large"></i>19km <i
+          class="fas fa-arrows-alt-v w3-large"></i>1404m <i class="fas fa-percent w3-large"></i>7,4<br>
+        depuis Sainte-Marie-de-Campan <i class="fas fa-mountain w3-large"></i>2115m <i
+          class="fas fa-arrows-alt-h w3-large"></i>17,2km <i class="fas fa-arrows-alt-v w3-large"></i>1268m<i
+          class="fas fa-percent w3-large"></i>7,4</div>
+      <button class="accordion" style="font-size:20px"><i class="fas fa-mountain  w3-xlarge" style="color:whitesmoke"></i> Col
         des Tentes - Gavarnie</button>
-      <div class="panel" style="font-family: cursive;font-size: 20px;">depuis G&eacutedre  <i
-          class="fas fa-mountain w3-xlarge"></i>2220m  <i class="fas fa-arrows-alt-h w3-xlarge"></i>17,2km  <i
-          class="fas fa-arrows-alt-v w3-xlarge"></i>1170m  <i class="fas fa-percent w3-xlarge"></i>6,8</div>
-      <button class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-text-brown w3-xlarge"></i>
+      <div class="panel" style="font-family: cursive;font-size: 18px;color:lightgray">depuis G&eacutedre <i
+          class="fas fa-mountain w3-large"></i>2220m <i class="fas fa-arrows-alt-h w3-large"></i>17,2km <i
+          class="fas fa-arrows-alt-v w3-large"></i>1170m <i class="fas fa-percent w3-large"></i>6,8</div>
+      <button class="accordion" style="font-size:20px"><i class="fas fa-mountain  w3-xlarge" style="color:whitesmoke"></i>
         Cirque de Troumouse</button>
-      <div class="panel" style="font-family: cursive;font-size: 20px;">depuis G&eacutedre  <i
-          class="fas fa-mountain w3-xlarge"></i>2100m  <i class="fas fa-arrows-alt-h w3-xlarge"></i>15,3km  <i
-          class="fas fa-arrows-alt-v w3-xlarge"></i>1040m  <i class="fas fa-percent w3-xlarge"></i>6,8</div>
+      <div class="panel" style="font-family: cursive;font-size: 18px;color:lightgray">depuis G&eacutedre <i
+          class="fas fa-mountain w3-large"></i>2100m <i class="fas fa-arrows-alt-h w3-large"></i>15,3km <i
+          class="fas fa-arrows-alt-v w3-large"></i>1040m <i class="fas fa-percent w3-large"></i>6,8</div>
 
-<button class="w3-button"> <br> </button>
+      <button class="w3-button"> <br> </button>
     </div>
-  
-  <p></p>
 
-  <!-- Contact Container -->
-  <div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
-    <div class="w3-row">
-      <div class="w3-col m5">
-        <div class="w3-padding-16"><span class="w3-xlarge w3-border-deep-purple w3-bottombar">Contact</span>
+    <hr>
+
+    <!-- Contact Container -->
+    <div class="w3-container w3-padding w3-theme-l5" id="contact">
+      <div class="w3-row">
+        <div class="w3-col m5">
+          <div class="w3-padding-16"><span class="w3-xlarge w3-border-deep-purple w3-bottombar">Contact</span>
+          </div>
+          <h3>Besoin de renseignements? Envoyez vos questions sur la kiloToise<br>...ou allez rouler et partagez votre
+            <i>journey</i> !
+          </h3>
+          <!--<p>Et allez rouler!</p>-->
+
+          <p class="w3-xlarge"><i class="fa fa-envelope-o"></i>
+            <script
+              type=text/javascript> var name = "lakilotoise" ; var domain = "gmx.fr" ; var subject = "anti-spam" ; document.write('<a href="mailto:' + name + '@' + domain + ' ?' + subject + '">') ; document.write(name + '@' + domain + '</a>') ;</script>
+          </p>
+          <p class="w3-xlarge"><i class="fab fa-strava w3-text-deep-purple w3-xlarge"></i> <i
+              class="fa fa-instagram w3-text-deep-purple w3-xlarge"></i></p>
         </div>
-        <h3>Besoin de renseignements? Envoyez vos questions sur la kiloToise<br>...ou allez rouler et partagez votre <i>journey</i> !
-        </h3>
-        <!--<p>Et allez rouler!</p>-->
-
-        <p class="w3-xlarge"><i class="fa fa-envelope-o"></i>
-          <script
-            type=text/javascript> var name = "lakilotoise" ; var domain = "gmx.fr" ; var subject = "anti-spam" ; document.write('<a href="mailto:' + name + '@' + domain + ' ?' + subject + '">') ; document.write(name + '@' + domain + '</a>') ;</script>
-        </p>
-        <p class="w3-xlarge"><i class="fab fa-strava w3-text-deep-purple w3-xlarge"></i> <i
-            class="fa fa-instagram w3-text-deep-purple w3-xlarge"></i></p>
-      </div>
-      <!--<div class="w3-col m7">
+        <!--<div class="w3-col m7">
             <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
               <div class="w3-section">
                 <label>Nom</label>
@@ -615,12 +601,12 @@
         -->
 
 
-      <div class="w3-col m7">
-        <button onclick="document.getElementById('id01').style.display='block'"
-          class="w3-button w3-xlarge w3-theme w3-hover-deep-purple" title="Go To W3.CSS">Soyons Responsables</button>
+        <div class="w3-col m7">
+          <button onclick="document.getElementById('id01').style.display='block'"
+            class="w3-button w3-xlarge w3-theme w3-hover-deep-purple" title="Go To W3.CSS">Soyons Responsables</button>
+        </div>
       </div>
     </div>
-  </div>
 
   </div>
   <!-- Footer -->
@@ -637,8 +623,8 @@
       <a class="w3-button w3-large w3-deep-purple w3-hide-small" href="javascript:void(0)" title="Linkedin"><i
           class="fa fa-linkedin"></i></a>-->
     <p>Développé avec l'aide de <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-    <p>la kiloToise, nom déposé. Droits réservés.</p>
-    <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
+    <!--<p>la kiloToise, nom déposé. Droits réservés.</p>-->
+    <div style="position:relative;bottom:70px;z-index:1;" class="w3-tooltip w3-right">
       <span class="w3-text w3-padding w3-deep-purple w3-hide-small">Haut de page</span>
       <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
           <i class="fa fa-chevron-circle-up"></i></span></a>
