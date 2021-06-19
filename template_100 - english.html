@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<title>La kiloToise</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3style_rev.css">
+<link rel="stylesheet" href="w3-theme-black-rev.css">
+
+<head>
+  <script src="https://kit.fontawesome.com/14550d8f56.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" href="etoile_pleine.png" />
+  <!--version 1.0.0 avec Trilobite remplacé par formulaire pour tester sa propre planète en fonction du temps rentré, avec appel à l'API du système solaire-->
+</head>
+<style>
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Papyrus", serif;
+    /*font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  h4 {
+    font-size: small;
+  }
+
+  h5,
+  h6 {
+    font-weight: bold;
+  }
+
+  .caps {
+    background-color: transparent;
+  }
+
+  #fond_principal {
+    position: relative;
+  }
+
+  #titre {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+  }
+
+  #more {
+    display: none
+  }
+</style>
+
+<body id="myPage">
+
+  <!-- Sidebar on click -->
+  <!--
+    <nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-large" style="display:none;z-index:2"
+    id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()"
+      class="w3-bar-item w3-button w3-display-topright w3-text-deep-purple">Fermer
+      <i class="fa fa-remove"></i>
+    </a>
+    <a href="la_kilotoise_argeles.gpx" class="w3-bar-item w3-button" download>au d&eacutepart d'Argel&egraves-Gazost</a>
+    <a href="#" class="w3-bar-item w3-button">au d&eacutepart de Bagn&egraveres de Bigorre</a>
+    <a href="#" class="w3-bar-item w3-button">au d&eacutepart de Saint-Lary Soulan</a>
+
+  </nav>
+-->
+
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-theme-d2 w3-left-align">
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2"
+        href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+      <a href="#" class="w3-bar-item w3-button w3-deep-purple"><i class="fa fa-home w3-margin-right"></i>Home</a>
+      <a href="#Parcours" class="w3-bar-item w3-button w3-hide-small w3-hover-white"><i class="fas fa-route"></i>
+        Routes</a>
+      <a href="#info" class="w3-bar-item w3-button w3-hide-small w3-hover-white"><i class="fas fa-info-circle"></i>
+        Info</a>
+      <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-button" title="Notifications"><i class="fas fa-pencil-alt"></i> Stories <i
+            class="fa fa-caret-down"></i></button>
+        <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+          <a href="#" class="w3-bar-item w3-button">First kT</a>
+          <a href="#" class="w3-bar-item w3-button">Next!</a>
+          <!--<a href="#" class="w3-bar-item w3-button">Link</a>-->
+        </div>
+      </div>
+      <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white"><i class="fa fa-envelope-o"></i>
+        Contact</a>
+      <a href="template_100.html" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-deep-purple"
+        title="language"><img src="FR2.png" alt="français" style="width: 30px;">
+        <!--<i
+          class="fa fa-search"></i>-->
+      </a>
+
+      <a href="template_100.html"
+        class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-center w3-hover-deep-purple" title="language"><img src="FR2.png" alt="français" style="width: 30px;">
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-right">
+      <a href="#Parcours" class="w3-bar-item w3-button"><i class="fas fa-route"></i></a>
+      <a href="#info" class="w3-bar-item w3-button"><i class="fas fa-info-circle"></i></a>
+      <a href="#" class="w3-bar-item w3-button"><i class="fas fa-pencil-alt"></i></a>
+      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope-o"></i></a>
+    </div>
+  </div>
+
+  <!-- liste des cols
+
+  <a href="https://www.cols-cyclisme.com/pyrenees-centrales/france/col-de-portet-depuis-saint-lary-soulan-c127.htm">Col de Portet</a>
+  <a href="https://www.cols-cyclisme.com/pyrenees-centrales/france/col-du-tourmalet-depuis-luz-saint-sauveur-c65.htm">Tourmalet depuis Luz Saint-Sauveur</a>
+  <a href="https://www.cols-cyclisme.com/pyrenees-centrales/france/col-du-tourmalet-depuis-sainte-marie-de-campan-c64.htm">Tourmalet depuis Sainte-Marie de Campan</a>
+  <a href="https://www.cols-cyclisme.com/pyrenees-centrales/france/lac-de-cap-de-long-depuis-saint-lary-soulan-c311.htm">Lacs du Néouvielle</a>
+  <a href="https://www.cols-cyclisme.com/pyrenees-centrales/france/cirque-de-troumouse-depuis-luz-saint-sauveur-c1459.htm">Cirque de Troumouse</a>
+  <a href="https://www.cols-cyclisme.com/pyrenees-centrales/france/port-de-boucharo-depuis-luz-saint-sauveur-c128.htm">Col des Tentes</a>
+  <a href="https://www.cols-cyclisme.com/pyrenees-centrales/france/hourquette-d-ancizan-depuis-campan-c310.htm">Hourquette d'Ancizan</a>
+  <a href="https://www.cols-cyclisme.com/pyrenees-centrales/france/col-d-aspin-depuis-arreau-c9.htm">Col d'Aspin</a>
+-->
+
+  <!-- Image Header -->
+  <!--<div class="w3-display-container w3-animate-opacity w3-hide-small" id="fond_principal">
+    <img src="fond_test.png" alt="fond" style="width:100%;min-height:350px;max-height:600px;">
+    <img src="fond_sans_titre.png" alt="fond" style="width:100%;min-height:350px;max-height:600px;">
+  <img src="titre.png" alt="titre" id="titre" style="width:60%; height: 60%">
+
+    
+  <div class="w3-container w3-display-bottomright w3-margin-bottom">
+      <button onclick="document.getElementById('id01').style.display='block'"
+        class="w3-button w3-large w3-theme w3-hover-deep-purple" title="Go To W3.CSS">En savoir plus</button>
+    </div>
+    
+  </div>
+  <div class="w3-display-container w3-animate-opacity w3-hide-large w3-hide-medium" id="fond_principal">
+    <img src="fond_sans_titre.png" alt="fond" style="width:100%;min-height:350px;max-height:600px;">
+    <img src="titre.png" alt="titre_la_kilotoise" id="titre" style="width:80%; height: 60%" loading="lazy">
+  </div>-->
+
+  <!--debut slideshow-->
+  <div class="slideshow-container">
+
+    <div class="mySlides fade">
+      <!--<div class="numbertext">1 / 3</div>-->
+      <img src="fond_sans_titre.png" alt="fond" style="width:100%;min-height:350px;max-height:600px;">
+      <img src="titre.png" alt="titre_la_kilotoise" id="titre" style="width:80%; height:auto; max-width: 400px;" loading="lazy">
+      <!--<div class="text">Caption Text</div>-->
+    </div>
+
+    <div class="mySlides fade">
+      <!--<div class="numbertext">2 / 3</div>-->
+      <img src="slide_lacet2.jpeg" style="width:100%" loading="lazy">
+      <img src="titre.png" alt="titre_la_kilotoise" id="titre" style="width:80%; height:auto; max-width: 400px;" loading="lazy">
+
+      <!--<div class="text">Caption Two</div>-->
+    </div>
+
+    <div class="mySlides fade">
+      <!--<div class="numbertext">3 / 3</div>-->
+      <img src="slide_col_tourmalet2.jpg" style="width:100%" loading="lazy">
+      <img src="titre.png" alt="titre_la_kilotoise" id="titre" style="width:80%; height:auto; max-width: 400px; max-height:300px;" loading="lazy">
+
+      <!--<div class="text">Caption Three</div>-->
+    </div>
+
+    <div class="mySlides fade">
+      <!--<div class="numbertext">3 / 3</div>-->
+      <img src="slide_hourquette.jpg" style="width:100%" loading="lazy">
+      <img src="titre.png" alt="titre_la_kilotoise" id="titre" style="width:80%; height:auto; max-width: 400px; max-height:300px;" loading="lazy">
+
+      <!--<div class="text">Caption Three</div>-->
+    </div>
+
+    <div class="mySlides fade">
+      <!--<div class="numbertext">3 / 3</div>-->
+      <img src="slide_pan_tourmalet2.jpg" style="width:100%" loading="lazy">
+      <img src="titre.png" alt="titre_la_kilotoise" id="titre" style="width:80%; height:auto; max-width: 400px; max-height:300px;" loading="lazy">
+
+      <!--<div class="text">Caption Three</div>-->
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  </div>
+  <!--<div class="slideshow-container w3-hide-medium w3-hide-large">
+
+    <div class="mySlides fade">
+
+      <img src="fond_sans_titre.png" style="width:100%">
+      <img src="titre.png" alt="titre_la_kilotoise" id="titre" style="width:80%; height: 60%" loading="lazy">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="slide_lacet.jpeg" style="width:100%" loading="lazy">
+
+    </div>
+
+    <div class="mySlides fade">
+      <img src="slide_hourquette.jpg" style="width:100%" loading="lazy">
+
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  </div>-->
+  <br>
+
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+  </div>
+  <!-- fin slideshow-->
+
+  <!-- Modal -->
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-top">
+      <header class="w3-container w3-deep-purple w3-display-container">
+        <span onclick="document.getElementById('id01').style.display='none'"
+          class="w3-button w3-deep-purple w3-display-topright"><i class="fa fa-remove"></i></span>
+        <!--<h4>La kiloToise</h4>-->
+        <h3>Read me </h3>
+      </header>
+      <div class="w3-container">
+        <p>
+        <h4>"La kiloToise" consists in a solo bike challenge which is performed on open roads in a moutain environment.
+            Riders commit their own responsability in this challenge. Pay attention to traffic regulations, as those can
+            be modified upon circumstances, because of<a class="w3-text-deep-purple"
+              href="https://meteofrance.com/meteo-montagne/la-mongie-tourmalet/650591">weather conditions</a> or
+            <a class="w3-text-deep-purple" href="http://inforoute.ha-py.fr/#">seasonal road works</a>. <br>In pastoral
+            areas, do not disturb the work of sheperds as well as cattles and wildlife.<br>For the sake of all
+            participants, it is strongly recommended to start with a bike in a good condition fitted with bright and
+            long-lasting lights, as well as the adequate bikepacking gear. Also, you won't regret a solid training prior to the
+            event!</h4>
+        </p>
+        <!--<p>Go to our <a class="w3-text-deep-purple" href="/w3css/default.asp">W3.CSS Tutorial</a> to learn more!</p>
+      -->
+      </div>
+      <footer class="w3-container w3-deep-purple">
+        <p>Thank you, now go for your ride! <i class="fa fa-smile-o"></i></p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modalrecits" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-top">
+      <header class="w3-container w3-deep-purple w3-display-container">
+        <span onclick="document.getElementById('modalrecits').style.display='none'"
+          class="w3-button w3-deep-purple w3-display-topright"><i class="fa fa-remove"></i></span>
+        <!--<h4>La kiloToise</h4>-->
+        <h3 class="w3-center w3-xlarge">Congratulations!</h3>
+      </header>
+      <div class="w3-container">
+        <p>
+        <h4>Now, it's time to record this tremendous achievement, by posting your ride to the mail address below. A nice
+            story along with prominent photos will set your memories in stone for a while! Alternatively, selfies of the
+            signs at the top of the climbs or a link to Strava's <i class="fab fa-strava"></i>public activity can be
+            provided as evidence.</h4>
+        </p>
+        <!--<p>Go to our <a class="w3-text-deep-purple" href="/w3css/default.asp">W3.CSS Tutorial</a> to learn more!</p>
+      -->
+      </div>
+      <footer class="w3-container w3-deep-purple">
+        <p class="w3-medium w3-center w3-large"><i class="fa fa-envelope-o w3-large"></i>
+          <script
+            type=text/javascript> var name = "lakilotoise" ; var domain = "gmx.fr" ; var subject = "anti-spam" ; document.write('<a href="mailto:' + name + '@' + domain + ' ?' + subject + '">') ; document.write(name + '@' + domain + '</a>') ;</script>
+        </p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Team Container -->
+  <div class="w3-container w3-padding-64 w3-center" id="team">
+    <h2>La kiloToise, Challenge of one day... and one night</h2>
+    <p class="w3-large">
+    <h3>Most of the highest roads in the Pyrenees that can be climbed with a road bike orbit around the "Pic du Midi"
+        observatory. The goal of the challenge is to join the summits of all the climbs exceeding one kiloToise in
+        altitude, and to finish this in less than one day! This achievement requires not less than 8 climbs along 320km
+        and 10500m of elevation (5400 toises). You will get such a nice experience of the Gravity!</h3>
+    </p>
+    <p class="w3-medium"><i>(*) 1 kiloToise = 1949 meters</i></p>
+
+
+
+    <!-- Work Row -->
+    <div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work">
+
+      <div class="w3-quarter">
+        <div class="w3-card w3-white">
+          <img src="clock_parcours.png" alt="horloge" style="width:100%" class="w3-circle" loading="lazy">
+          <div class="w3-container">
+            <h3>In only one day?</h3>
+
+            <p>
+            <h4>Right, the definition of the day can vary from the appr. 24 hours during which the Earth makes a
+                full revolution though. That would be much too restrictive. On the contrary, it is allowed to choose the duration
+                of the day from a self-selected planet. For instance, on Europe, one of Jupiter's 79 moons, one revolution
+                lasts more than 3 days on Earth. <br>Taking advantage of your own definition of the day, the challenge can be tailored whether it is
+                attempted in solo or with friends, with a tandem, an e-bike, and whatever your level of training.
+                Finishing in less than 24 hours is already a strong accomplishment, probably reserved to the most endurant
+                cyclists.</h4>
+            </p>
+            <p><button class="w3-button w3-light-grey w3-block"><a href="#calcDefis">Set your challenge!</a></button></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-quarter">
+        <div class="w3-card w3-white">
+          <img src="calendrier_tourmalet_tr.png" alt="calendrier" style="width:100%" loading="lazy">
+          <div class="w3-container">
+            <h3>What's the date?</h3>
+
+            <p>
+            <h4>This is an ITT challenge. As such, the rider is free to set the date at its best convenience. However,
+                the most elevated roads usually remain closed between October and early June. Snowfalls in the late summer
+                are not unusual.
+                In addition, be careful to sudden changes of weather conditions that are likely to happen in the
+                mountains. Take the information prior to your attempt. For cyclists who intend to brave the night, ideally
+                try to get the spotlight of the full moon along your route to enjoy the scenery. </h4>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-quarter">
+        <div class="w3-card w3-white">
+          <img src="carte_garmin.png" alt="carte" style="width:100%" loading="lazy">
+          <div class="w3-container" style="position:relative">
+            <h3>Itineraries</h3>
+
+            <p>
+            <h4>What are the checkpoints? Those which culminate above one kiloToise are: col du Tourmalet with both western-side and eastern-side (this is the only way to answer the still undecided question of the most difficult way to the top), 
+                col des Tentes in Cirque de Gavarnie, Cirque de Troumouse, Col de Portet, Cap-de-Long lake and Aubert/Aumar lakes in Néouvielle National Park. Alike some planets that can't be dissociated from their satellites,  
+                col d’Aspin and Hourquette d’Ancizan must be added to the list. And so, the route oscillates from well preserved valleys to some of the most epic Tour de France climbs, never far way from the telescops of the "Pic du Midi" observatory. </h4>
+            </p>
+            <p><button class="w3-button w3-light-grey w3-block"><a href="#Parcours">Details</a></button></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-quarter">
+        <div class="w3-card w3-white">
+          <img src="ceci_est_une_course.png" alt="course" style="width:100%" loading="lazy">
+          <div class="w3-container" style="position: relative;">
+            <h3>This is not a race (sic)</h3>
+
+            <p>
+            <h4>At most this challenge is a journey through some of the most spectacular places in the Pyrenees mountains. In the meantime, the mind and the body will have to face a daunting prospect, while the legs will beg for mercy in the steepest climbs, the oxygen atoms become scarce, the temperature skyrockets and drops as quickly when the sun hides below the horizon, etc, etc. No need for a final ranking or a reward, this short and intense travel will tell you the answer : on which planet do you stand? And from there let you target another star!</h4>
+            </p>
+            <p id="dots"></p>
+            <p id="more" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:small">This format of cycling events is not new, for instance, in the Pyrenees with <a class="w3-text-deep-purple"
+                href="https://www.baron-souloraubisque.com/" target="_blank">les Barons du Soulor-Aubisque</a> or
+              l'Ari&egrave;geoise perp&eacute;tuelle, in the Alps
+              with<a class="w3-text-deep-purple" href="https://www.les7majeurs.com/" target="_blank"> les 7
+                majeurs</a>, or others like the <i>Everesting Challenge</i>, cyclosportives, brevets... There is already a large panel that worth looking at!</p>
+            <p><a onclick="myFunction()" id="myBtn" class="w3-button w3-xlarge w3-circle w3-deep-purple"
+                style="position:absolute;bottom:-28px;right:5px">+</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Les Défis -->
+    <div class="w3-row-padding w3-center w3-padding-64" id="defis">
+      <h2>Challenge</h2>
+      <h3>Tailor the challenge for you, ride and share the experience and your highlights<br> ...and keep the memories machine running !</h3><br>
+      <div class="w3-quarter w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-hover-shadow">
+          <li class="w3-theme-l5">
+            <p class="w3-xlarge">Europe
+              <img src="cap_europe.gif" alt="caps" style="width:60%;" class="w3-right" loading="lazy">
+            </p>
+          </li>
+
+          <li class="w3-padding-16"><br>Wiki<a class="w3-text-deep-purple w3-cursive"
+              href="https://fr.wikipedia.org/wiki/Europe_(lune)" target="_blank"><br>Long day on Europe, one of Jupiter's satellite</a></li>
+          <li class="w3-padding-16"><b>Limit time</b></li>
+          <li class="w3-padding-16"><b>3 days 13 hours and 14 minutes </b></li>
+
+
+          <li class="w3-theme-l5 w3-padding-24">
+            <button onclick="document.getElementById('modalrecits').style.display='block'"
+              class="w3-button w3-deep-purple w3-padding-large w3-card-4"><i class="fa fa-check"></i> Completed!</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="w3-quarter w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-hover-shadow">
+          <li class="w3-theme-l2">
+            <p class="w3-xlarge">Earth
+              <img src="cap_terre.gif" alt="caps" style="width:60%;" class="w3-right" loading="lazy">
+            </p>
+          </li>
+
+          <li class="w3-padding-16"><br>Wiki<a class="w3-text-deep-purple w3-cursive"
+              href="https://fr.wikipedia.org/wiki/Dur%C3%A9e_du_jour#Variation_%C3%A0_long_terme_de_la_dur%C3%A9e_du_jour_solaire_terrestre"
+              target="_blank"><br>How the Earth makes its revolution through ages</a></li>
+          <li class="w3-padding-16"><b>Limit time</b></li>
+          <li class="w3-padding-16"><b>23 hours and 56 minutes</b></li>
+          <li class="w3-theme-l5 w3-padding-24">
+            <button onclick="document.getElementById('modalrecits').style.display='block'"
+              class="w3-button w3-deep-purple w3-padding-large w3-card-4"><i class="fa fa-check"></i> Completed!</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="w3-quarter w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-hover-shadow">
+          <li class="w3-theme-l1">
+            <p class="w3-xlarge">Neptune
+              <img src="cap_neptune.gif" alt="caps" style="width:60%;" class="w3-right" loading="lazy">
+            </p>
+          </li>
+
+          <li class="w3-padding-16"><br>Wiki<a class="w3-text-deep-purple w3-cursive"
+              href="https://fr.wikipedia.org/wiki/Neptune_(plan%C3%A8te)#Rotation" target="_blank"><br>Spring comes back every 40 years, welcome on Neptune!</a></li>
+          <li class="w3-padding-16"><b>Limit time</b></li>
+          <li class="w3-padding-16"><b>16 hours and 7 minutes</b> </li>
+          <li class="w3-theme-l5 w3-padding-24">
+            <button onclick="document.getElementById('modalrecits').style.display='block'"
+              class="w3-button w3-deep-purple w3-padding-large w3-card-4"><i class="fa fa-check"></i>Completed!</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="w3-quarter w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-hover-shadow" id="calcDefis">
+          <li class="w3-theme">
+            <p class="w3-xlarge"><span id="demo">My planet!</span></p>
+              <!--<img src="cap_trilobite.gif" alt="caps" style="width:60%;" class="w3-right" loading="lazy">-->
+            <p><span id="satellite" class="w3-large"></span><span id="astre" style="text-transform: capitalize;" class="w3-large"></span></p>
+          </li>
+          <li style="padding: 12px 12px;"><br><b>Enter your time...</b><br>
+            <p>
+            <input id="inputJours" type="number" min="0" max="365" value="0" placeholder="jours" oninput="astreRequest()" onchange="astreRequest()">
+            <label>d</label>
+            <input id="inputHeures" type="number" min="0" max="23" value="12" placeholder="heures" oninput="astreRequest()" onchange="astreRequest()">
+            <label>hr</label>
+            <input id="inputMinutes" type="number" min="0" max="59" value="30" placeholder="minutes" oninput="astreRequest()" onchange="astreRequest()">
+            <label>min</label>
+            </p>
+            <p id="testtemps" style="display: none;"></p>
+            <!--<p id="demo"></p></li>-->
+          <li class="w3-padding-8"><span><button type="button" onclick="loadDoc()" class="w3-button w3-deep-purple w3-padding-medium w3-card-4">...and find out your planet!</button></span></span></li>
+          <li class="w3-padding-16" id="dureejour" style="font-weight: bold;"></li>
+          <li class="w3-theme-l5 w3-padding-24">
+            <button onclick="document.getElementById('modalrecits').style.display='block'"
+              class="w3-button w3-deep-purple w3-padding-large w3-card-4"><i class="fa fa-check"></i> Completed!</button>
+          </li>
+        </ul>
+      </div>
+
+
+      <!-- Sur quel astre avez-vous "atterri"? Entrez votre temps ici 
+      requête pour chercher avec filtre sur période max
+      puis donner les infos de l'astre correspondant
+      casquette avec point d'interrogation-->
+      <!--<p id="planetfinder"><h3>Sur quel astre avez-vous "atterri"? Entrez votre temps ici</h3></p>
+      <p>
+        <input id="inputJours" type="number" min="0" max="365" value="0" placeholder="jours" oninput="weightConverter(this.value)" onchange="weightConverter(this.value)">
+        <label>j</label>
+        <input id="inputHeures" type="number" min="0" max="23" value="12" placeholder="heures" oninput="weightConverter(this.value)" onchange="weightConverter(this.value)">
+        <label>h</label>
+        <input id="inputMinutes" type="number" min="0" max="59" value="30" placeholder="minutes" oninput="weightConverter(this.value)" onchange="weightConverter(this.value)">
+        <label>min</label>
+      </p>
+      <input type="submit" value="Soumettre" onclick="astreRequest()">
+      <button type="button" onclick="loadDoc()">Request data</button>
+      <p>Corps c&eacuteleste: <span id="outputPlanet"></span></p>
+      afficher le nom en mode typewriter et ajouter quelques d'infos sur la planète -->
+
+    </div>
+
+    <div class="w3-container w3-padding-16 w3-theme-l5" id='info'>
+      <p class="w3-xxlarge w3-theme-l5">Info</p>
+      <ul class="w3-ul w3-card-4 w3-left">
+        <li class="w3-row">
+          <i class="fas fa-snowflake w3-text-deep-purple w3-xxlarge w3-col l1 s1"></i>
+          <div class="w3-col l10 s10">
+            <span class="w3-large">Weather</span><br>
+            <span class="">
+              <h4>Check the <a class="w3-text-deep-purple"
+                href="https://meteofrance.com/meteo-montagne/la-mongie-tourmalet/650591">weather conditions</a> before the attempt. In the mountains, violent thunderstorms can develop. Don't be surprised to experience some snowfalls throughout the summer at these altitudes.</h4>
+            </span>
+          </div>
+        </li>
+        <li class="w3-row">
+          <div class="w3-col l1 s1"><i class="fas fa-road w3-text-deep-purple w3-xxlarge "></i>
+
+          </div>
+          <div class="w3-col l10 s10">
+            <span class="w3-large">Road</span><br>
+            <span class="">
+              <h4>Make sure that <a class="w3-text-deep-purple" href="http://inforoute.ha-py.fr/#">mountain roads</a> are opened and in good condition. Some climbs are subject to seasonal or temporary closures.</h4>
+            </span>
+          </div>
+        </li>
+        <li class="w3-row">
+          <i class="fas fa-cog w3-text-deep-purple w3-xxlarge w3-col l1 s1"></i>
+          <div class="w3-col l10 s10">
+            <span class="w3-large">Gear</span><br>
+            <span class="">
+              <h4>Obviously, the machine must be fully checked before leaving, especially tires/tubes and brakes must be in perfect condition.
+                No one enjoys to give-up because of a mechanical failure or a missing tube. Bring a repair kit. Save your legs by selecting the right gearing taking into account the cumulated fatigue and the steep climbs. </h4>
+            </span>
+          </div>
+        </li>
+        <li class="w3-row">
+          <i class="fas fa-first-aid w3-text-deep-purple w3-xxlarge w3-col l1 s1"></i>
+          <div class="w3-col l10 s10">
+            <span class="w3-large">Safety</span><br>
+            <span class="">
+              <h4>To see and to be visible, here are the priorities. This means carrying at least front and rear lights and a high-visibility jacket.
+                Other must-have items: a helmet, a warm cycling set, a rain jacket, gloves, a phone, money,
+                ID, a GPS or a map.</h4>
+            </span>
+          </div>
+        </li>
+        <li class="w3-row ">
+          <i class="fas fa-tree w3-text-deep-purple w3-xxlarge w3-col l1 s1"></i>
+          <div class="w3-col l10 s10">
+            <span class="w3-large">Care about the environment</span><br>
+            <span class="">
+              <h4>Carry your garbage or leave them in "poubelles"/thrash cans. Moreover, the roads bring you accross the Pyrenees National Park (including areas registered at UNESCO) where a specific <a class="w3-text-deep-purple"
+                href="http://www.pyrenees-parcnational.fr/fr/le-parc-national-des-pyrenees/la-reglementation-du-parc-national-des-pyrenees">regulation</a>applies.</h4>
+            </span>
+          </div>
+        </li>
+        <li class="w3-row">
+          <i class="fas fa-campground w3-text-deep-purple w3-xxlarge w3-col l1 s1"></i>
+          <div class="w3-col l10 s10">
+            <span class="w3-large">Bivouac</span><br>
+            <span class="">
+              <h4>Camping / Bivouac is restricted inside the <a class="w3-text-deep-purple"
+                href="http://www.pyrenees-parcnational.fr/fr/le-parc-national-des-pyrenees/la-reglementation-du-parc-national-des-pyrenees">Pyrenees National Park</a>. In particular, it is prohibited at less than one-hour walking distance to the nearest road.</h4>
+            </span>
+          </div>
+        </li>
+        <li class="w3-row">
+          <i class="fas fa-paw w3-text-deep-purple w3-xxlarge w3-col l1 s1"></i>
+          <div class="w3-col l10 s10">
+            <span class="w3-large">Wildlife</span><br>
+            <span class="">
+              <h4>Be careful of cattles, sheperd dogs, marmots or any other cute animals that may occupy or cross the roads and become a hazard if met in the darkness, under tunnels/shelters or in a descent.</h4>
+            </span>
+          </div>
+        </li>
+        <li class="w3-row">
+          <i class="fas fa-faucet w3-text-deep-purple w3-xxlarge w3-col l1 s1"></i>
+          <div class="w3-col l10 s10">
+            <span class="w3-large">Refueling</span><br>
+            <span class="">
+              <h4>Always favor drinking water from fountains or public toilets and avoid rivers or small streams to fill-in the bidons. Open the eyes, you will easily find some water in most towns, as well as food supply (but bakeries or supermarkets are not opened at any time of the day) and a place to sleep or a shelter if the storm is on your heels.</h4>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+  <!-- Image of location/map 
+    <img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%;">-->
+
+  <!-- traces Komoot, profil sportif-->
+  <div class="w3-container w3-padding-64 w3-center w3-card" id="Parcours">
+    <p class="w3-xxlarge">
+    <h2>Routes</h2>
+    </p>
+    <button class="accordion">From Arreau</button>
+    <div class="panel" style="color:lightgray">
+      <a href="la kilotoise - Arreau.gpx" class="w3-row-padding w3-cursive " download>download GPX</a>
+      <br>
+      <iframe
+        src="https://www.komoot.fr/tour/368289806/embed?share_token=as6cxXQakzMf32oKETu96YgrU9kqrTrnzj9NHs1d9xEFhJEKXO&profile=1"
+        width="100%" height="680" frameborder="0" scrolling="no" loading="lazy"></iframe>
+
+    </div>
+
+    <button class="accordion">From Luz-Saint-Sauveur</button>
+
+    <div class="panel" style="color:lightgray">
+      <a href="la_kilotoise_argeles.gpx" class="w3-row-padding w3-cursive" download>download GPX</a>
+      <br>
+      <iframe
+        src="https://www.komoot.fr/tour/335850262/embed?share_token=abaJc9nbzYyRWW3dGIAKEbWq52g2Atcj2EdODesNh0aiEzu48m&profile=1"
+        width="100%" height="680" frameborder="0" scrolling="no" loading="lazy"></iframe>
+    </div>
+
+    <button class="accordion">From Bagn&egraveres de Bigorre</button>
+    <div class="panel" style="color:lightgray">
+      <a href="la kilotoise - Bagneres.gpx" class="w3-row-padding w3-cursive" download>download GPX</a>
+      <br>
+      <iframe
+        src="https://www.komoot.fr/tour/368286821/embed?share_token=aDCHUfEve8FlAnFpYxfYJ1LgXZxjKMNWv6NIJKk1vNf7t35rhE&profile=1"
+        width="100%" height="680" frameborder="0" scrolling="no" loading="lazy"></iframe>
+
+    </div>
+    <p></p>
+    <button class="accordion">The Climbs</button>
+    <div class="panel">
+      <button class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-xlarge"
+          style="color:whitesmoke"></i> Col de Portet</button>
+      <div class="panel" style="font-family: cursive;font-size: 18px; color:lightgray">from Saint-Lary-Soulan <i
+          class="fas fa-mountain w3-large"></i>2215m <i class="fas fa-arrows-alt-h w3-large"></i>17,8km <i
+          class="fas fa-arrows-alt-v w3-large"></i>1405m <i class="fas fa-percent w3-large"></i>7,9</div>
+      <button class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-xlarge"
+          style="color:whitesmoke"></i> Lac
+        de Cap-de-Long - N&eacuteouvielle</button>
+      <div class="panel" style="font-family:cursive;font-weight:lighter;font-size: 18px; color:lightgray">from
+        Saint-Lary-Soulan <i class="fas fa-mountain w3-large"></i>2165m <i
+          class="fas fa-arrows-alt-h w3-large"></i>22,5km <i class="fas fa-arrows-alt-v w3-large"></i>1380m <i
+          class="fas fa-percent w3-large"></i>6,1</div>
+      <button class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-xlarge"
+          style="color:whitesmoke"></i> Lacs
+        d'Aubert et Aumar - N&eacuteouvielle</button>
+      <div class="panel" style="font-family: cursive;font-size: 18px; color:lightgray">from lac d'Or&eacutedon <i
+          class="fas fa-mountain w3-large"></i>2205m <i class="fas fa-arrows-alt-h w3-large"></i>4,5km <i
+          class="fas fa-arrows-alt-v w3-large"></i>330m <i class="fas fa-percent w3-large"></i>7,4</div>
+      <button class="accordion" style="font-size:20px"><i class="fa fa-tree w3-text-green w3-xlarge"></i> Col
+        d'Aspin</button>
+      <div class="panel" style="font-family: cursive;font-size: 18px; color:lightgray">from Arreau <i
+          class="fas fa-mountain w3-large"></i>1489m <i class="fas fa-arrows-alt-h w3-large"></i>12km <i
+          class="fas fa-arrows-alt-v w3-large"></i>779m <i class="fas fa-percent w3-large"></i>6,5<br>
+          from Sainte-Marie-de-Campan <i class="fas fa-mountain w3-large"></i>1489m <i
+          class="fas fa-arrows-alt-h w3-large"></i>12,5km <i class="fas fa-arrows-alt-v w3-large"></i>620m <i
+          class="fas fa-percent w3-large"></i>5,0</div>
+      <button class="accordion" style="font-size:20px"><i class="fa fa-tree w3-text-green w3-xlarge"></i> Hourquette
+        d'Ancizan</button>
+      <div class="panel" style="font-family: cursive;font-size: 18px; color:lightgray">from Ancizan <i
+          class="fas fa-mountain w3-large"></i>1564m <i class="fas fa-arrows-alt-h w3-large"></i>10,3km <i
+          class="fas fa-arrows-alt-v w3-large"></i>805m <i class="fas fa-percent w3-large"></i>7,8<br>
+          from Sainte-Marie-de-Campan <i class="fas fa-mountain w3-large"></i>1564m <i
+          class="fas fa-arrows-alt-h w3-large"></i>17km <i class="fas fa-arrows-alt-v w3-large"></i>770m <i
+          class="fas fa-percent w3-large"></i>4,5</div>
+      <button class="accordion" style="font-size:20px"><i class="fas fa-mountain w3-xlarge"
+          style="color:whitesmoke"></i> Col
+        du Tourmalet</button>
+      <div class="panel" style="font-family: cursive;font-size: 18px; color:lightgray">from Luz-Saint-Sauveur <i
+          class="fas fa-mountain w3-large"></i>2115m <i class="fas fa-arrows-alt-h w3-large"></i>19km <i
+          class="fas fa-arrows-alt-v w3-large"></i>1404m <i class="fas fa-percent w3-large"></i>7,4<br>
+          from Sainte-Marie-de-Campan <i class="fas fa-mountain w3-large"></i>2115m <i
+          class="fas fa-arrows-alt-h w3-large"></i>17,2km <i class="fas fa-arrows-alt-v w3-large"></i>1268m<i
+          class="fas fa-percent w3-large"></i>7,4</div>
+      <button class="accordion" style="font-size:20px"><i class="fas fa-mountain  w3-xlarge"
+          style="color:whitesmoke"></i> Col
+        des Tentes - Gavarnie</button>
+      <div class="panel" style="font-family: cursive;font-size: 18px;color:lightgray">from G&eacutedre <i
+          class="fas fa-mountain w3-large"></i>2220m <i class="fas fa-arrows-alt-h w3-large"></i>17,2km <i
+          class="fas fa-arrows-alt-v w3-large"></i>1170m <i class="fas fa-percent w3-large"></i>6,8</div>
+      <button class="accordion" style="font-size:20px"><i class="fas fa-mountain  w3-xlarge"
+          style="color:whitesmoke"></i>
+        Cirque de Troumouse</button>
+      <div class="panel" style="font-family: cursive;font-size: 18px;color:lightgray">from G&eacutedre <i
+          class="fas fa-mountain w3-large"></i>2100m <i class="fas fa-arrows-alt-h w3-large"></i>15,3km <i
+          class="fas fa-arrows-alt-v w3-large"></i>1040m <i class="fas fa-percent w3-large"></i>6,8</div>
+
+      <button class="w3-button"> <br> </button>
+    </div>
+
+    <hr>
+
+    <!-- Contact Container -->
+    <div class="w3-container w3-padding w3-theme-l5" id="contact">
+      <div class="w3-row">
+        <div class="w3-col m5">
+          <div class="w3-padding-16"><span class="w3-xlarge w3-border-deep-purple w3-bottombar">Contact</span>
+          </div>
+          <h3>Need more info? Send your questions about la kiloToise<br>...or go riding your bike and share your damned <i>journey</i> !
+          </h3>
+          <!--<p>Et allez rouler!</p>-->
+
+          <p class="w3-xlarge"><i class="fa fa-envelope-o"></i>
+            <script
+              type=text/javascript> var name = "lakilotoise" ; var domain = "gmx.fr" ; var subject = "anti-spam" ; document.write('<a href="mailto:' + name + '@' + domain + ' ?' + subject + '">') ; document.write(name + '@' + domain + '</a>') ;</script>
+          </p>
+          <!--<p class="w3-xlarge"><i class="fab fa-strava w3-text-deep-purple w3-xlarge"></i> <i
+              class="fa fa-instagram w3-text-deep-purple w3-xlarge"></i></p>-->
+        </div>
+        <!--<div class="w3-col m7">
+            <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
+              <div class="w3-section">
+                <label>Nom</label>
+                <input class="w3-input" type="text" name="Name" required>
+              </div>
+              <div class="w3-section">
+                <label>Email</label>
+                <input class="w3-input" type="text" name="Email" required>
+              </div>
+              <div class="w3-section">
+                <label>Message</label>
+                <input class="w3-input" type="text" name="Message" required>
+              </div>
+              <input class="w3-check" type="checkbox" checked name="Like">
+              <label>Je m'inscris!</label>
+              <button type="submit" class="w3-button w3-right w3-theme">Envoyer</button>
+            </form>
+          </div>
+        -->
+
+
+        <div class="w3-col m7">
+          <button onclick="document.getElementById('id01').style.display='block'"
+            class="w3-button w3-xlarge w3-theme w3-hover-deep-purple" title="Go To W3.CSS">Let's be responsible</button>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+    <!--<h4>Follow Us</h4>
+      <a class="w3-button w3-large w3-deep-purple" href="javascript:void(0)" title="Facebook"><i
+          class="fa fa-facebook"></i></a>
+      <a class="w3-button w3-large w3-deep-purple" href="javascript:void(0)" title="Twitter"><i
+          class="fa fa-twitter"></i></a>
+      <a class="w3-button w3-large w3-deep-purple" href="javascript:void(0)" title="Google +"><i
+          class="fa fa-google-plus"></i></a>
+      <a class="w3-button w3-large w3-deep-purple" href="javascript:void(0)" title="Google +"><i
+          class="fa fa-instagram"></i></a>
+      <a class="w3-button w3-large w3-deep-purple w3-hide-small" href="javascript:void(0)" title="Linkedin"><i
+          class="fa fa-linkedin"></i></a>-->
+
+    <!--<p>la kiloToise, nom déposé. Droits réservés.</p>-->
+    <p></p>
+    <div class="w3-card-4 w3-padding-large"><img src="logo.png" height="30%" width="30%" alt="logo" loading="lazy">
+    </div>
+    <p></p>
+    <p>developed thanks to <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    <div style="position:relative;bottom:70px;z-index:1;" class="w3-tooltip w3-right">
+      <span class="w3-text w3-padding w3-deep-purple w3-hide-small">To the Top </span>
+      <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
+          <i class="fa fa-chevron-circle-up"></i></span></a>
+    </div>
+  </footer>
+
+  <script>
+    // Script for side navigation
+    function w3_open() {
+      var x = document.getElementById("mySidebar");
+      x.style.width = "300px";
+      x.style.paddingTop = "10%";
+      x.style.display = "block";
+    }
+
+    // Close side navigation
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+
+    // Used to toggle the menu on smaller screens when clicking on the menu button
+    function openNav() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else {
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+    // Used to toggle the "details" when clicking on the "+" button
+    function openDetails() {
+      var dots = document.getElementById("details");
+      var moreText = document.getElementById("+");
+      var btnText = document.getElementById("myBtn");
+
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "+";
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "-";
+        moreText.style.display = "inline";
+      }
+    }
+
+    function myFunction() {
+      var dots = document.getElementById("dots");
+      var moreText = document.getElementById("more");
+      var btnText = document.getElementById("myBtn");
+
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "+";
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "-";
+        moreText.style.display = "inline";
+      }
+    }
+    /*accordeon*/
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    }
+
+    /*slideshow début*/
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dotss = document.getElementsByClassName("dot");
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dotss.length; i++) {
+        dotss[i].className = dotss[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dotss[slideIndex - 1].className += " active";
+    }
+/*slideshow - fin*/
+
+/* debut script API NASA planete */
+
+function astreRequest() {
+    var nbjours = Number(document.getElementById("inputJours").value);
+    var nbheures = Number(document.getElementById("inputHeures").value);
+    var nbminutes = Number(document.getElementById("inputMinutes").value);
+    var y = nbjours*24+nbheures+nbminutes/60;
+    document.getElementById("testtemps").innerHTML = y;
+}
+var astreid="";
+
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  var totaltime = document.getElementById("testtemps").innerHTML;
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var tablePlanet = this.responseText;
+        var namePlanet = JSON.parse(tablePlanet);
+        
+        var heures = Math.trunc(namePlanet.bodies[0].sideralRotation);
+        var minutes = Math.round(60*(namePlanet.bodies[0].sideralRotation - heures));
+
+        document.getElementById("demo").innerHTML = namePlanet.bodies[0].name;
+        document.getElementById("dureejour").innerHTML = "Limit time "+heures+"hr "+minutes+"min";
+
+        astreid = namePlanet.bodies[0].id;
+        loadastre();        
+    }
+  };
+  xhttp.open("GET", "https://api.le-systeme-solaire.net/rest.php/bodies?data=isPlanet%2C%20id%2C%20name%2C%20aroundPlanet%2C%20sideralRotation&order=sideralRotation%2Casc&filter%5B%5D=sideralRotation%2Cge%2C"+totaltime, true);
+  xhttp.send();
+}
+function loadastre() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var getastreJSON = this.responseText;
+        var getastre = JSON.parse(getastreJSON);
+        if (getastre.isPlanet !== true){
+        document.getElementById("astre").innerHTML = getastre.aroundPlanet.planet;
+        document.getElementById("satellite").innerHTML = "satellite of ";
+      }
+      else {
+        document.getElementById("astre").innerHTML = "";
+        document.getElementById("satellite").innerHTML = "";
+      }
+    }
+  }
+  xhttp.open("GET", "https://api.le-systeme-solaire.net/rest.php/bodies/"+astreid,true)
+  xhttp.send();
+}
+/* fin script API NASA planete*/
+  </script>
+</body>
+
+</html>
